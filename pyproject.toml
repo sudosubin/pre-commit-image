@@ -15,7 +15,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = { file = "LICENSE" }
 authors = [
-    { name="Subin Kim", email="sudosubin@gmail.com" },
+    { name = "Subin Kim", email = "sudosubin@gmail.com" },
 ]
 classifiers = [
     "Development Status :: 1 - Planning",
@@ -46,7 +46,11 @@ line-length = 80
 src = ["src"]
 target-version = "py38"
 
+[tool.ruff.format]
+preview = true
+
 [tool.ruff.lint]
+preview = true
 select = ["ANN", "B", "E", "F", "FURB", "I", "ICN", "N", "RUF", "SIM", "TID"]
 
 [tool.ruff.lint.flake8-import-conventions]
