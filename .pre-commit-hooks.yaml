@@ -1,0 +1,7 @@
+- id: image
+  name: image
+  entry: pre-commit-image
+  language: python
+  language_version: python3
+  files: \.(avif|heic|heif|jpeg|jpg|png|svg|webp)$
+  additional_dependencies: [".[avif,heif,svg]"]
