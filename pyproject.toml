@@ -6,6 +6,8 @@ build-backend = "uv_build"
 dev = [
     "pytest~=8.3.5",
     "ruff~=0.11.5",
+    "tox~=4.25.0",
+    "tox-uv>=1.13.1",
 ]
 
 [project]
@@ -62,3 +64,14 @@ ban-relative-imports = "all"
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
+
+[tool.tox]
+requires = ["tox~=4.25.0", "tox-uv>=1.13.1"]
+env_list = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+
+[tool.tox.env_run_base]
+description = "Run test under {base_python}"
+commands = [["uv", "run", "pytest"]]
+extras = ["avif", "heif", "svg"]
+package = "uv-editable"
+runner = "uv-venv-lock-runner"
