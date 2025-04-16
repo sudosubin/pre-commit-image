@@ -25,15 +25,16 @@ class SaveStep:
         candidate_size = fp.tell()
         fp.seek(0)
 
-        if is_resized or source_size - candidate_size > threshold:
-            if extension and extension != get_extension(file):
-                source.unlink()
-                source = Path(source).with_suffix(f".{extension}")
-                self.stdout.write(
-                    f"[INFO] Renaming {file} → {source} with extension "
-                    f"{extension}\n"
-                )
+        is_format = extension and extension != get_extension(file)
+        if is_format:
+            source.unlink()
+            source = Path(source).with_suffix(f".{extension}")
+            self.stdout.write(
+                f"[INFO] Renaming {file} → {source} with extension "
+                f"{extension}\n"
+            )
 
+        if is_format or is_resized or source_size - candidate_size > threshold:
             self.stdout.write(
                 f"[INFO] Saving {file} "
                 f"({get_readable_byte_size(source_size)} → "
