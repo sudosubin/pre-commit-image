@@ -21,11 +21,12 @@ jobs:
       - uses: commitizen-tools/commitizen-action@0.24.0
         with:
           changelog_increment_filename: body.md
+          check_consistency: true
           git_redirect_stderr: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: softprops/action-gh-release@v2
         with:
           body_path: "body.md"
-          tag_name: ${{ env.REVISION }}
+          tag_name: v${{ env.REVISION }}
           token: ${{ secrets.GITHUB_TOKEN }}
