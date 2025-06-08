@@ -34,7 +34,9 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
 ]
 urls = { "Repository" = "https://github.com/sudosubin/pre-commit-image" }
-dependencies = []
+dependencies = [
+    "pillow",
+]
 
 [project.optional-dependencies]
 avif = ["pillow-avif-plugin>=1.4.6,<2.0"]
