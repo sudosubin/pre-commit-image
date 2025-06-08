@@ -20,7 +20,7 @@ Add below to your project's `.pre-commit-config.yaml`.
 ```yaml
 repos:
   - repo: https://github.com/sudosubin/pre-commit-image
-    rev: v0.1.1
+    rev: v0.1.2
     hooks:
       - id: image
 ```
@@ -45,7 +45,7 @@ Set the maximum width and height to `1200px`, and always save the image with the
 ```yaml
 repos:
   - repo: https://github.com/sudosubin/pre-commit-image
-    rev: v0.1.1
+    rev: v0.1.2
     hooks:
       - id: image
         args: [--max-width, "1200", --max-height, "1200", --extension, avif]
