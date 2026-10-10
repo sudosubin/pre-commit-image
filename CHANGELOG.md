@@ -1,3 +1,9 @@
+## v0.1.4 (2026-10-10)
+
+### Fix
+
+- emit invalid image file warning once to stderr
+
 ## v0.1.3 (2026-10-10)
 
 ### Fix
