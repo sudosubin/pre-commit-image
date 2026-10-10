@@ -1,13 +1,14 @@
 [build-system]
-requires = ["uv-build>=0.6.6,<0.7"]
+requires = ["uv-build>=0.13.0,<0.14"]
 build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "pytest~=8.3.5",
-    "ruff~=0.11.5",
-    "tox~=4.25.0",
-    "tox-uv>=1.13.1",
+    "pytest~=8.3.5; python_version < '3.10'",
+    "pytest>=9.1,<10; python_version >= '3.10'",
+    "ruff~=0.17.0",
+    "tox>=4.65,<5; python_version >= '3.11'",
+    "tox-uv>=1.36,<2; python_version >= '3.11'",
 ]
 
 [project]
@@ -68,7 +69,7 @@ ban-relative-imports = "all"
 combine-as-imports = true
 
 [tool.tox]
-requires = ["tox~=4.25.0", "tox-uv>=1.13.1"]
+requires = ["tox>=4.65,<5", "tox-uv>=1.36,<2"]
 env_list = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
 
 [tool.tox.env_run_base]
