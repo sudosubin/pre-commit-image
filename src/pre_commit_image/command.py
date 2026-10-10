@@ -2,7 +2,7 @@ import argparse
 import typing
 from tempfile import SpooledTemporaryFile
 
-from pre_commit_image.steps import Steps
+from pre_commit_image.steps.base import Steps
 from pre_commit_image.steps.compress import CompressStep
 from pre_commit_image.steps.resize import ResizeStep
 from pre_commit_image.steps.save import SaveStep
