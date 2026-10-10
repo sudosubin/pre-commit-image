@@ -1,3 +1,13 @@
+## v0.1.3 (2026-10-10)
+
+### Fix
+
+- support latest Pillow and Python 3.15 with per-version dependency constraints
+
+### Refactor
+
+- move Steps dataclass out of steps/__init__.py
+
 ## v0.1.2 (2025-06-08)
 
 ### Fix
