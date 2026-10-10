@@ -54,7 +54,7 @@ class Command:
         for file in files:
             strategy = self.find_strategy(file)
             if strategy is None:
-                self.stdout.write(f"[WARN] {file} is not a valid image file\n")
+                self.stderr.write(f"[WARN] {file} is not a valid image file\n")
                 continue
 
             self.handle_file(
@@ -143,7 +143,4 @@ class Command:
         }
 
     def find_strategy(self, path: str) -> typing.Optional[BaseStrategy]:
-        if strategy := self.strategies.get(get_extension(path)):
-            return strategy
-        self.stderr.write(f"[WARN] No available strategy found for {path}\n")
-        return None
+        return self.strategies.get(get_extension(path))
