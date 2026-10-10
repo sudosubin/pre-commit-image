@@ -1,5 +1,8 @@
 # pre-commit-image
 
+[![version](https://badgen.net/github/release/sudosubin/pre-commit-image?label=version)](https://github.com/sudosubin/pre-commit-image/releases)
+[![license](https://badgen.net/github/license/sudosubin/pre-commit-image?color=green)](LICENSE)
+
 A command-line application that optimizes and resizes images, which can work as a git hook.
 This command-line application can be invoked directly or using the configuration provided for the [pre-commit](https://pre-commit.com/). See below for more information.
 
