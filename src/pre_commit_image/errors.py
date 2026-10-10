@@ -1,2 +1,0 @@
-class PreCommitImageError(Exception):
-    pass

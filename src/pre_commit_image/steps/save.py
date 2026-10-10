@@ -1,4 +1,3 @@
-import re
 import typing
 from pathlib import Path
 
@@ -49,8 +48,3 @@ class SaveStep:
             f"{get_readable_byte_size(candidate_size)})\n"
         )
         return False
-
-    def get_image_path(self, file: str, extension: typing.Optional[str]) -> str:
-        if extension:
-            return re.sub(rf"\{get_extension(file)}$", f".{extension}", file)
-        return file
