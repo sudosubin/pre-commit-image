@@ -13,6 +13,10 @@ Native supported formats: `jpeg`(`jpg`), `png`, `webp`
 | `heif` | `.[heif]` |
 | `svg`  | `.[svg]`  |
 
+`avif` is supported natively by Pillow 12 (Python 3.10+), so the `.[avif]` extra only installs [pillow-avif-plugin](https://github.com/fdintino/pillow-avif-plugin) on Python 3.8 and 3.9.
+
+Python 3.8 to 3.15 are supported. Python 3.8 and 3.9 use older dependencies (Pillow 10.x, pillow-heif 0.18.x), while Python 3.10+ uses the latest ones.
+
 ## Usage
 
 Add below to your project's `.pre-commit-config.yaml`.
