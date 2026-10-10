@@ -6,17 +6,32 @@ from PIL import Image, ImageFile
 from pre_commit_image.strategies.base import BaseStrategy
 
 
+def is_native_avif_available() -> bool:
+    try:
+        from PIL import AvifImagePlugin
+    except ImportError:
+        return False
+    return bool(AvifImagePlugin.SUPPORTED)
+
+
+def register_avif_plugin() -> None:
+    if not is_native_avif_available():
+        import pillow_avif as pillow_avif
+
+
 class AVIFStrategy(BaseStrategy[Image.Image]):
     name: typing.ClassVar = "avif"
     extensions: typing.ClassVar = ["avif"]
 
     @staticmethod
     def is_strategy_available() -> bool:
-        return importlib.util.find_spec("pillow_avif") is not None
+        return (
+            is_native_avif_available()
+            or importlib.util.find_spec("pillow_avif") is not None
+        )
 
     def open(self, path: str) -> ImageFile.ImageFile:
-        import pillow_avif as pillow_avif
-
+        register_avif_plugin()
         return Image.open(path)
 
     def get_size(self, image: Image.Image) -> typing.Tuple[int, int]:
@@ -34,6 +49,5 @@ class AVIFStrategy(BaseStrategy[Image.Image]):
     def compress(
         self, image: Image.Image, fp: typing.IO[bytes], quality: int
     ) -> None:
-        import pillow_avif as pillow_avif
-
+        register_avif_plugin()
         image.save(fp, format="AVIF", speed=5, quality=quality)

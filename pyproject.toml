@@ -32,16 +32,18 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Programming Language :: Python :: Implementation :: CPython",
 ]
 urls = { "Repository" = "https://github.com/sudosubin/pre-commit-image" }
 dependencies = [
-    "pillow",
+    "pillow>=10.4,<11; python_version < '3.10'",
+    "pillow>=12,<13; python_version >= '3.10'",
 ]
 
 [project.optional-dependencies]
-avif = ["pillow-avif-plugin>=1.4.6,<2.0"]
-heif = ["pillow-heif>=0.18.0,<0.23.0"]
+avif = ["pillow-avif-plugin>=1.4.6,<2.0; python_version < '3.10'"]
+heif = ["pillow-heif>=0.18.0"]
 svg = ["scour>=0.38,<0.39"]
 
 [project.scripts]
@@ -70,7 +72,7 @@ combine-as-imports = true
 
 [tool.tox]
 requires = ["tox>=4.65,<5", "tox-uv>=1.36,<2"]
-env_list = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+env_list = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14", "3.15"]
 
 [tool.tox.env_run_base]
 description = "Run test under {base_python}"
